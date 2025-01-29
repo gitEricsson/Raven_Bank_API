@@ -1,0 +1,7 @@
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-29T15:25:59.667Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-29T15:25:59.866Z"}
+{"duration":13,"ip":"::1","level":"info","message":"Request processed","method":"POST","path":"/signup","statusCode":400,"timestamp":"2025-01-29T15:27:51.042Z"}
+{"duration":17,"ip":"::1","level":"info","message":"Request processed","method":"POST","path":"/signup","statusCode":400,"timestamp":"2025-01-29T15:30:44.497Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-29T15:30:55.947Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-29T15:30:56.045Z"}
+{"duration":12,"ip":"::1","level":"info","message":"Request processed","method":"POST","path":"/signup","statusCode":400,"timestamp":"2025-01-29T15:31:07.772Z"}
