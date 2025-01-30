@@ -6,16 +6,15 @@ export interface AuthRequest extends Request {
   user?: any;
 }
 
-export const auth = async (
-  req: AuthRequest,
-  res: Response,
-  next: NextFunction
-) => {
+export const auth = (req: AuthRequest, res: Response, next: NextFunction) => {
   try {
-    const token = req.header('Authorization')?.replace('Bearer ', '');
+    const token = req.headers.authorization?.split(' ')[1];
 
     if (!token) {
-      throw new Error();
+      return res.status(401).json({
+        status: false,
+        message: 'Unauthorized access: No token provided',
+      });
     }
 
     const decoded = jwt.verify(token, AppConfig.jwt.ACCESS_TOKEN_SECRET);
@@ -25,34 +24,26 @@ export const auth = async (
     if (error instanceof Error) {
       switch (error.name) {
         case 'TokenExpiredError': {
-          error.message = 'Session expired!: Login and try again';
-          res.status(403).json({
+          return res.status(403).json({
             status: false,
-            message: error.message,
+            message: 'Session expired!: Login and try again',
           });
-          break;
         }
         case 'JsonWebTokenError': {
-          error.message = 'Invalid token!: Login and try again';
-          res.status(401).json({
+          return res.status(401).json({
             status: false,
-            message: error.message,
+            message: 'Invalid token!: Login and try again',
           });
-          break;
         }
         case 'NotBeforeError': {
-          error.message = 'Inactive token!: Login and try again';
-          res.status(401).json({
+          return res.status(401).json({
             status: false,
-            message: error.message,
+            message: 'Inactive token!: Login and try again',
           });
-          break;
         }
         default:
-          next(error);
-          break;
+          return next(error);
       }
     }
-    res.status(401).json({ error: 'Please authenticate' });
   }
 };

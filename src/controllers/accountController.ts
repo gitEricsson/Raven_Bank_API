@@ -13,7 +13,11 @@ export class AccountController {
     try {
       const account = await this.ravenAtlasService.createVirtualAccount(
         req.user!.id,
-        req.body.email
+        req.user!.email,
+        req.user!.firstName,
+        req.user!.lastName,
+        req.user!.phone,
+        req.body.amount || 0
       );
       return res.status(201).json(account);
     } catch (error) {

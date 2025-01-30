@@ -13,8 +13,8 @@ export class TokenController {
         return res.status(400).json({ error: 'Refresh token is required' });
       }
 
-      const newToken = await this.authService.refreshToken(refreshToken);
-      return res.json({ token: newToken });
+      const tokens: object = await this.authService.refreshToken(refreshToken);
+      return res.json(tokens);
     } catch (error) {
       return next(error);
     }

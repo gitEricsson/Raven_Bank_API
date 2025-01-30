@@ -30,7 +30,8 @@ const AppConfig = {
     secret: process.env.WEBHOOK_SECRET || 'webhook-secret',
   },
   raven: {
-    apiUrl: process.env.RAVEN_API_URL || 'https://api.getravenbank.com/v1',
+    apiUrl:
+      process.env.RAVEN_API_URL || 'https://integrations.getravenbank.com/v1',
     apiKey: process.env.RAVEN_API_KEY || '',
     webhookSecret: process.env.RAVEN_WEBHOOK_SECRET || '',
   },

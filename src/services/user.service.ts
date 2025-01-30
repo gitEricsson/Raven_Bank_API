@@ -29,6 +29,9 @@ export class UserService {
   }
 
   async signup(
+    firstName: string,
+    lastName: string,
+    phone: string | number,
     email: string,
     password: string
   ): Promise<{
@@ -42,7 +45,13 @@ export class UserService {
     }
 
     const hashedPassword = await this.hashService.hash(password);
-    const user = await this.userRepository.create(email, hashedPassword);
+    const user = await this.userRepository.create(
+      firstName,
+      lastName,
+      phone,
+      email,
+      hashedPassword
+    );
 
     const { password: _, ...userWithoutPassword } = user;
     const token = this.tokenService.generateAccessToken(userWithoutPassword);
@@ -83,7 +92,7 @@ export class UserService {
     return { user: userWithoutPassword, token, refreshToken };
   }
 
-  async refreshToken(refreshToken: string): Promise<string> {
+  async refreshToken(refreshToken: string): Promise<object> {
     try {
       const decoded = await this.tokenService.verifyRefreshToken(refreshToken);
       const user = await this.userRepository.findById(decoded.id);
@@ -93,7 +102,14 @@ export class UserService {
       }
 
       const { password: _, ...userWithoutPassword } = user;
-      return this.tokenService.generateAccessToken(userWithoutPassword);
+
+      const access = await this.tokenService.generateAccessToken(
+        userWithoutPassword
+      );
+      const refresh = await this.tokenService.generateRefreshToken(
+        userWithoutPassword
+      );
+      return { access, refresh };
     } catch (error) {
       throw new UnauthorizedError('Invalid refresh token');
     }

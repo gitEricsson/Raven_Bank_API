@@ -22,7 +22,14 @@ export class TokenService {
 
   generateAccessToken(user: Omit<User, 'password'>): string {
     return jwt.sign(
-      { id: user.id, email: user.email, role: user.role },
+      {
+        id: user.id,
+        email: user.email,
+        role: user.role,
+        firstName: user.first_name,
+        lastName: user.last_name,
+        phone: user.phone,
+      },
       AppConfig.jwt.ACCESS_TOKEN_SECRET,
       { expiresIn: AppConfig.jwt.ACCESS_TOKEN_EXPIRY } as jwt.SignOptions
     );
@@ -31,7 +38,14 @@ export class TokenService {
   async generateRefreshToken(user: Omit<User, 'password'>): Promise<string> {
     return withTransaction(async (trx) => {
       const token = jwt.sign(
-        { id: user.id, email: user.email, role: user.role },
+        {
+          id: user.id,
+          email: user.email,
+          role: user.role,
+          firstName: user.first_name,
+          lastName: user.last_name,
+          phone: user.phone,
+        },
         AppConfig.jwt.REFRESH_TOKEN_SECRET
       );
 

@@ -72,6 +72,7 @@ export class RavenAtlasService {
     this.client.interceptors.response.use(
       (response: any) => response,
       (error: any) => {
+        console.log(error);
         logger.error('Raven API Error:', {
           status: error.response?.status,
           data: error.response?.data,
@@ -100,12 +101,20 @@ export class RavenAtlasService {
 
   async createVirtualAccount(
     userId: number,
-    userEmail: string
+    userEmail: string,
+    firstName: string,
+    lastName: string,
+    phone: string,
+    amount: number
   ): Promise<Account> {
     try {
-      const response: any = await this.client.post('/virtual-accounts', {
+      console.log(firstName, lastName, phone, userEmail);
+      const response: any = await this.client.post('/pwbt/generate_account', {
+        first_name: firstName,
+        last_name: lastName,
+        phone: phone,
+        amount: amount,
         email: userEmail,
-        name: `User-${userId}`,
       });
 
       const virtualAccountNumber = response.data.account_number;

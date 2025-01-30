@@ -13,8 +13,17 @@ export class UserRepository {
     return UserRepository.instance;
   }
 
-  async create(email: string, hashedPassword: string): Promise<User> {
+  async create(
+    firstName: string,
+    lastName: string,
+    phone: string | number,
+    email: string,
+    hashedPassword: string
+  ): Promise<User> {
     const [userId] = await db('users').insert({
+      first_name: firstName,
+      last_name: lastName,
+      phone,
       email,
       password: hashedPassword,
     });

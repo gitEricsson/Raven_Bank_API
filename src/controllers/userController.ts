@@ -6,9 +6,17 @@ export class UserController {
 
   async signup(req: Request, res: Response) {
     try {
-      const { email, password } = req.body;
-      console.log(this.userService);
-      const result = await this.userService.signup(email, password);
+      const { firstName, lastName, phone, email, password } = req.body;
+      if (!firstName || !lastName || !phone || !email || !password) {
+        return res.status(400).json({ error: 'Missing required fields' });
+      }
+      const result = await this.userService.signup(
+        firstName,
+        lastName,
+        phone,
+        email,
+        password
+      );
       return res.status(201).json(result);
     } catch (error) {
       return res.status(400).json({ error: (error as Error).message });

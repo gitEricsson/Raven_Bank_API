@@ -2,6 +2,9 @@ import { Role, TransactionStatus, TransactionType } from './enums';
 
 export interface User {
   id?: number;
+  first_name: string;
+  last_name: string;
+  phone: string;
   email: string;
   password: string;
   role: Role;
