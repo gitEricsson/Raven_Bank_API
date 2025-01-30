@@ -1,12 +1,14 @@
 import { Router } from 'express';
 import { UserController } from '../controllers/userController';
+import { TokenController } from '../controllers/tokenController';
 import { userService } from '../config/dependencies';
 import { validate } from '../middleware/validate';
 import { userSchemas } from '../validations/schemas';
 
-const router = Router();
+const router: Router = Router();
 
 const userController: UserController = new UserController(userService);
+const tokenController: TokenController = new TokenController(userService);
 
 /**
  * @swagger
@@ -43,7 +45,11 @@ const userController: UserController = new UserController(userService);
  *                 token:
  *                   type: string
  */
-router.post('/signup', validate(userSchemas.register), userController.register);
+router.post(
+  '/signup',
+  validate(userSchemas.register),
+  userController.signup.bind(userController)
+);
 
 /**
  * @swagger
@@ -79,7 +85,11 @@ router.post('/signup', validate(userSchemas.register), userController.register);
  *                 token:
  *                   type: string
  */
-router.post('/login', validate(userSchemas.login), userController.login);
+router.post(
+  '/login',
+  validate(userSchemas.login),
+  userController.login.bind(userController)
+);
 
 /**
  * @swagger
@@ -109,14 +119,9 @@ router.post('/login', validate(userSchemas.login), userController.login);
  *                 token:
  *                   type: string
  */
-router.post('/refresh-token', async (req, res, next) => {
-  try {
-    const { refreshToken } = req.body;
-    const newToken = await userService.refreshToken(refreshToken);
-    res.json({ token: newToken });
-  } catch (error) {
-    next(error);
-  }
-});
+router.post(
+  '/refresh-token',
+  tokenController.refreshToken.bind(tokenController)
+);
 
 export default router;

@@ -1,13 +1,15 @@
 import { Router } from 'express';
 import { AccountController } from '../controllers/accountController';
-import { accountService } from '../config/dependencies';
+import { accountService, ravenService } from '../config/dependencies';
 import { guard } from '../config/dependencies';
 import { Role } from '../types';
+import { auth } from 'src/middleware/auth';
 
 const router = Router();
 
 const accountController: AccountController = new AccountController(
-  accountService
+  accountService,
+  ravenService
 );
 
 /**
@@ -26,7 +28,12 @@ const accountController: AccountController = new AccountController(
  *             schema:
  *               $ref: '#/components/schemas/Account'
  */
-router.post('/', guard.authorize([Role.USER]), accountController.createAccount);
+router.post(
+  '/',
+  auth,
+  guard.authorize([Role.USER]),
+  accountController.createAccount.bind(accountController)
+);
 
 /**
  * @swagger
@@ -46,7 +53,12 @@ router.post('/', guard.authorize([Role.USER]), accountController.createAccount);
  *               items:
  *                 $ref: '#/components/schemas/Account'
  */
-router.get('/', guard.authorize([Role.USER]), accountController.getAccounts);
+router.get(
+  '/',
+  auth,
+  guard.authorize([Role.USER]),
+  accountController.getAccounts.bind(accountController)
+);
 
 /**
  * @swagger
@@ -68,8 +80,9 @@ router.get('/', guard.authorize([Role.USER]), accountController.getAccounts);
  */
 router.get(
   '/all',
+  auth,
   guard.authorize([Role.ADMIN]),
-  accountController.getAllAccounts
+  accountController.getAllAccounts.bind(accountController)
 );
 
 export default router;

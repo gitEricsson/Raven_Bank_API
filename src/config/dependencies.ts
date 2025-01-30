@@ -6,7 +6,7 @@ import AccountService from '../services/account.service';
 import TransactionService from '../services/transaction.service';
 import WebhookService from '../services/webhook.service';
 import TokenService from '../services/token.service';
-import { Guard } from '../utils/auth/guard';
+import Guard from '../middleware/guard';
 import { HashService } from '../utils/hashService';
 import CleanupService from '../services/cleanup.service';
 import RefreshTokenRepository from '../repositories/refreshToken.repository';
@@ -63,7 +63,10 @@ export const authDependencies: [Guard, UserRepository, TokenService] = [
 
 // Controller instances
 export const userController = new UserController(userService);
-export const accountController = new AccountController(accountService);
+export const accountController = new AccountController(
+  accountService,
+  ravenService
+);
 export const transactionController = new TransactionController(
   transactionService,
   ravenService,

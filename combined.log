@@ -5,3 +5,53 @@
 {"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-29T15:30:55.947Z"}
 {"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-29T15:30:56.045Z"}
 {"duration":12,"ip":"::1","level":"info","message":"Request processed","method":"POST","path":"/signup","statusCode":400,"timestamp":"2025-01-29T15:31:07.772Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:02:59.651Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:02:59.671Z"}
+{"duration":10,"ip":"::1","level":"info","message":"Request processed","method":"POST","path":"/signup","statusCode":400,"timestamp":"2025-01-30T14:07:01.378Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:10:38.517Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:10:38.535Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:12:50.130Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:12:50.217Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:13:26.335Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:13:26.437Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:13:46.267Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:13:46.295Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:15:31.788Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:15:31.810Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:17:03.856Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:17:03.881Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:17:26.093Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:17:26.117Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:17:50.032Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:17:50.068Z"}
+{"duration":10,"ip":"::1","level":"info","message":"Request processed","method":"POST","path":"/signup","statusCode":400,"timestamp":"2025-01-30T14:19:40.227Z"}
+{"duration":5,"ip":"::1","level":"info","message":"Request processed","method":"POST","path":"/signup","statusCode":400,"timestamp":"2025-01-30T14:23:38.452Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:29:55.363Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:29:55.450Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:31:02.705Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:31:02.750Z"}
+{"duration":27,"ip":"::1","level":"info","message":"Request processed","method":"POST","path":"/signup","statusCode":400,"timestamp":"2025-01-30T14:31:54.560Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:33:40.095Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:33:40.138Z"}
+{"duration":10,"ip":"::1","level":"info","message":"Request processed","method":"POST","path":"/signup","statusCode":400,"timestamp":"2025-01-30T14:33:42.626Z"}
+{"duration":2,"ip":"::1","level":"info","message":"Request processed","method":"POST","path":"/signup","statusCode":400,"timestamp":"2025-01-30T14:33:47.355Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:35:26.258Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:35:26.309Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:37:22.020Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:37:22.059Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:38:41.581Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:38:41.604Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:47:54.373Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:47:54.488Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:54:58.957Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:54:59.033Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:55:11.520Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:55:11.556Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:55:49.465Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:55:49.558Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:56:04.738Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:56:04.754Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T14:59:49.033Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:59:49.119Z"}
+{"duration":259,"ip":"::1","level":"info","message":"Request processed","method":"POST","path":"/signup","statusCode":400,"timestamp":"2025-01-30T14:59:53.909Z"}
+{"level":"info","message":"Shutting down server...","timestamp":"2025-01-30T15:00:02.596Z"}

@@ -4,8 +4,10 @@ import AccountService from '../services/account.service';
 import RavenAtlasService from 'src/services/ravenAtlas.service';
 
 export class AccountController {
-  ravenAtlasService: RavenAtlasService;
-  constructor(private accountService: AccountService) {}
+  constructor(
+    private accountService: AccountService,
+    private ravenAtlasService: RavenAtlasService
+  ) {}
 
   async createAccount(req: AuthRequest, res: Response, next: NextFunction) {
     try {

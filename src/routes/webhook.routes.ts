@@ -7,6 +7,7 @@ import {
   webhookService,
 } from '../config/dependencies';
 import { Role } from '../types';
+import { auth } from 'src/middleware/auth';
 
 const router = Router();
 
@@ -50,7 +51,7 @@ const webhookController: WebhookController = new WebhookController(
  *                 received:
  *                   type: boolean
  */
-router.post('/', webhookController.handleWebhook);
+router.post('/', webhookController.handleWebhook.bind(webhookController));
 
 /**
  * @swagger
@@ -80,6 +81,11 @@ router.post('/', webhookController.handleWebhook);
  *                     type: string
  *                     format: date-time
  */
-router.get('/logs', guard.authorize([Role.ADMIN]), webhookController.getLogs);
+router.get(
+  '/logs',
+  auth,
+  guard.authorize([Role.ADMIN]),
+  webhookController.getLogs.bind(webhookController)
+);
 
 export default router;

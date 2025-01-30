@@ -4,9 +4,10 @@ import UserService from '../services/user.service';
 export class UserController {
   constructor(private userService: UserService) {}
 
-  async register(req: Request, res: Response) {
+  async signup(req: Request, res: Response) {
     try {
       const { email, password } = req.body;
+      console.log(this.userService);
       const result = await this.userService.signup(email, password);
       return res.status(201).json(result);
     } catch (error) {

@@ -49,7 +49,7 @@ const transactionController: TransactionController = new TransactionController(
 // router.post(
 //   '/deposit',
 //   validate(transactionSchemas.deposit),
-//   transactionController.deposit
+//   transactionController.deposit.bind(transactionController)
 // );
 
 /**
@@ -90,7 +90,7 @@ router.post(
   '/transfer',
   auth,
   validate(transactionSchemas.transfer),
-  transactionController.transfer
+  transactionController.transfer.bind(transactionController)
 );
 
 /**
@@ -120,7 +120,7 @@ router.post(
 router.get(
   '/:accountNumber/history',
   auth,
-  transactionController.getTransactionHistory
+  transactionController.getTransactionHistory.bind(transactionController)
 );
 
 export default router;
