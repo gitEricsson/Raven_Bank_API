@@ -4,7 +4,7 @@ import RavenAtlasService from '../services/ravenAtlas.service';
 import { UnauthorizedError } from '../utils/errors';
 import AppConfig from '../config/app.config';
 // import logger from '../utils/logger';
-import WebhookService from 'src/services/webhook.service';
+import WebhookService from '../services/webhook.service';
 
 export class WebhookController {
   constructor(

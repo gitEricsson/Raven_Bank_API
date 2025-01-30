@@ -1,6 +1,6 @@
 import { Response, NextFunction } from 'express';
 import { AuthRequest } from '../middleware/auth';
-import UserService from 'src/services/user.service';
+import UserService from '../services/user.service';
 
 export class TokenController {
   constructor(private authService: UserService) {}

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { AuthRequest } from '../middleware/auth';
 import AccountService from '../services/account.service';
-import RavenAtlasService from 'src/services/ravenAtlas.service';
+import RavenAtlasService from '../services/ravenAtlas.service';
 
 export class AccountController {
   constructor(

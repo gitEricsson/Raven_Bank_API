@@ -2,7 +2,7 @@ import { Response } from 'express';
 import { AuthRequest } from '../middleware/auth';
 import TransactionService from '../services/transaction.service';
 import AccountService from '../services/account.service';
-import RavenAtlasService from 'src/services/ravenAtlas.service';
+import RavenAtlasService from '../services/ravenAtlas.service';
 
 export class TransactionController {
   constructor(

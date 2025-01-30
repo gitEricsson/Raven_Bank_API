@@ -3,7 +3,7 @@ import { AccountController } from '../controllers/accountController';
 import { accountService, ravenService } from '../config/dependencies';
 import { guard } from '../config/dependencies';
 import { Role } from '../types';
-import { auth } from 'src/middleware/auth';
+import { auth } from '../middleware/auth';
 
 const router = Router();
 

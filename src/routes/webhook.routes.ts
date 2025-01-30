@@ -7,7 +7,7 @@ import {
   webhookService,
 } from '../config/dependencies';
 import { Role } from '../types';
-import { auth } from 'src/middleware/auth';
+import { auth } from '../middleware/auth';
 
 const router = Router();
 

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Transaction } from '../types';
 import AppConfig from '../config/app.config';
-import WebhookLogRepository from 'src/repositories/webhookLog.repository';
+import WebhookLogRepository from '../repositories/webhookLog.repository';
 
 export class WebhookService {
   private static instance: WebhookService;

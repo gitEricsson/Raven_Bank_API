@@ -55,3 +55,5 @@
 {"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T14:59:49.119Z"}
 {"duration":259,"ip":"::1","level":"info","message":"Request processed","method":"POST","path":"/signup","statusCode":400,"timestamp":"2025-01-30T14:59:53.909Z"}
 {"level":"info","message":"Shutting down server...","timestamp":"2025-01-30T15:00:02.596Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-01-30T16:07:06.625Z"}
+{"level":"info","message":"Cleanup jobs started","timestamp":"2025-01-30T16:07:06.667Z"}

@@ -1,9 +1,6 @@
 import { Response, NextFunction } from 'express';
-import jwt from 'jsonwebtoken';
-import AppConfig from '../config/app.config';
-import { UnauthorizedError } from '../utils/errors';
 import { Role } from '../types';
-import { AuthRequest } from 'src/middleware/auth';
+import { AuthRequest } from './auth';
 
 class Guard {
   private static instance: Guard;
