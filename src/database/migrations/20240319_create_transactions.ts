@@ -1,5 +1,5 @@
 import { Knex } from 'knex';
-import { TransactionStatus, TransactionType } from 'src/types/enums';
+import { TransactionStatus, TransactionType } from '../../types/enums';
 
 export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable('transactions', (table) => {
