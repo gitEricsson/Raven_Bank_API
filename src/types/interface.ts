@@ -1,7 +1,4 @@
-export enum Role {
-  USER = 'USER',
-  ADMIN = 'ADMIN',
-}
+import { Role, TransactionStatus, TransactionType } from './enums';
 
 export interface User {
   id?: number;
@@ -26,8 +23,8 @@ export interface Transaction {
   sender_account_id: number;
   receiver_account_id: number;
   amount: number;
-  type: 'DEPOSIT' | 'TRANSFER';
-  status: 'PENDING' | 'COMPLETED' | 'FAILED';
+  type: TransactionType;
+  status: TransactionStatus;
   created_at?: Date;
   updated_at?: Date;
 }

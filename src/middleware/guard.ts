@@ -1,5 +1,5 @@
 import { Response, NextFunction } from 'express';
-import { Role } from '../types';
+import { Role } from '../types/enums';
 import { AuthRequest } from './auth';
 
 class Guard {

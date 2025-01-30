@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { addDays } from 'date-fns';
 import AppConfig from '../config/app.config';
-import { User } from '../types';
+import { User } from '../types/interface';
 import RefreshTokenRepository from '../repositories/refreshToken.repository';
 import { UnauthorizedError } from '../utils/errors';
 import { withTransaction } from '../utils/db';

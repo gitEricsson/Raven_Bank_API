@@ -1,4 +1,4 @@
-import { Account } from '../types';
+import { Account } from '../types/interface';
 import AccountRepository from '../repositories/account.repository';
 import { NotFoundError } from '../utils/errors';
 

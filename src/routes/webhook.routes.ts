@@ -6,7 +6,7 @@ import {
   webhookLogRepository,
   webhookService,
 } from '../config/dependencies';
-import { Role } from '../types';
+import { Role } from '../types/enums';
 import { auth } from '../middleware/auth';
 
 const router = Router();

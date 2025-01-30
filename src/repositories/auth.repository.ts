@@ -1,5 +1,5 @@
 import { db } from '../config/database';
-import { User } from '../types';
+import { User } from '../types/interface';
 
 export class UserRepository {
   private static instance: UserRepository;

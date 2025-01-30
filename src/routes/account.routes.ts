@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { AccountController } from '../controllers/accountController';
 import { accountService, ravenService } from '../config/dependencies';
 import { guard } from '../config/dependencies';
-import { Role } from '../types';
+import { Role } from '../types/enums';
 import { auth } from '../middleware/auth';
 
 const router = Router();

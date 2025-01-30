@@ -1,4 +1,5 @@
 import { Knex } from 'knex';
+import { TransactionStatus, TransactionType } from 'src/types/enums';
 
 export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable('transactions', (table) => {
@@ -14,10 +15,10 @@ export async function up(knex: Knex): Promise<void> {
       .references('id')
       .inTable('accounts');
     table.decimal('amount', 10, 2).notNullable();
-    table.enum('type', ['DEPOSIT', 'TRANSFER']).notNullable();
+    table.enum('type', Object.values(TransactionType)).notNullable();
     table
-      .enum('status', ['PENDING', 'COMPLETED', 'FAILED'])
-      .defaultTo('PENDING');
+      .enum('status', Object.values(TransactionStatus))
+      .defaultTo(TransactionStatus.PENDING);
     table.timestamps(true, true);
   });
 }

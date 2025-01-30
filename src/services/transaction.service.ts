@@ -1,9 +1,10 @@
-import { Account, Transaction } from '../types';
+import { Account, Transaction } from '../types/interface';
 import AccountRepository from '../repositories/account.repository';
 import TransactionRepository from '../repositories/transaction.repository';
 import WebhookService from './webhook.service';
 import { withTransaction } from '../utils/db';
 import { NotFoundError, ValidationError } from '../utils/errors';
+import { TransactionType, TransactionStatus } from '../types/enums';
 
 export class TransactionService {
   private static instance: TransactionService;
@@ -50,19 +51,19 @@ export class TransactionService {
         account.id!,
         account.id!,
         amount,
-        'DEPOSIT',
+        TransactionType.DEPOSIT,
         trx
       );
 
       await this.transactionRepository.updateStatus(
         transaction.id!,
-        'COMPLETED',
+        TransactionStatus.COMPLETED,
         trx
       );
 
       const completedTransaction: Transaction = {
         ...transaction,
-        status: 'COMPLETED' as 'COMPLETED',
+        status: TransactionStatus.COMPLETED,
       };
 
       await this.webhookService.notifyTransaction(transaction);
@@ -81,7 +82,7 @@ export class TransactionService {
         senderAccount.id!,
         receiverAccount.id!,
         amount,
-        'TRANSFER',
+        TransactionType.TRANSFER,
         trx
       );
 
@@ -98,13 +99,13 @@ export class TransactionService {
 
       await this.transactionRepository.updateStatus(
         transaction.id!,
-        'COMPLETED',
+        TransactionStatus.COMPLETED,
         trx
       );
 
       const completedTransaction: Transaction = {
         ...transaction,
-        status: 'COMPLETED',
+        status: TransactionStatus.COMPLETED,
       };
 
       await this.webhookService.notifyTransaction(transaction);

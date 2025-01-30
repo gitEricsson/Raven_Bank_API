@@ -1,6 +1,7 @@
 import { Knex } from 'knex';
 import { db } from '../config/database';
-import { Transaction } from '../types';
+import { Transaction } from '../types/interface';
+import { TransactionStatus, TransactionType } from '../types/enums';
 
 export class TransactionRepository {
   private static instance: TransactionRepository;
@@ -18,7 +19,7 @@ export class TransactionRepository {
     senderAccountId: number,
     receiverAccountId: number,
     amount: number,
-    type: 'DEPOSIT' | 'TRANSFER',
+    type: TransactionType,
     trx?: Knex.Transaction
   ): Promise<Transaction> {
     const query = (trx || db)('transactions');
@@ -27,7 +28,7 @@ export class TransactionRepository {
       receiver_account_id: receiverAccountId,
       amount,
       type,
-      status: 'PENDING',
+      status: TransactionStatus.PENDING,
     });
 
     const transaction = await this.findById(transactionId, trx);
@@ -53,7 +54,7 @@ export class TransactionRepository {
 
   async updateStatus(
     id: number,
-    status: 'PENDING' | 'COMPLETED' | 'FAILED',
+    status: TransactionStatus,
     trx?: Knex.Transaction
   ): Promise<void> {
     await (trx || db)('transactions').where('id', id).update({ status });

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Transaction } from '../types';
+import { Transaction } from '../types/interface';
 import AppConfig from '../config/app.config';
 import WebhookLogRepository from '../repositories/webhookLog.repository';
 

@@ -1,3 +1,4 @@
+import { TransactionStatus, TransactionType } from '../types/enums';
 import swaggerJsdoc from 'swagger-jsdoc';
 
 const options = {
@@ -50,10 +51,10 @@ const options = {
             sender_account_id: { type: 'number' },
             receiver_account_id: { type: 'number' },
             amount: { type: 'number' },
-            type: { type: 'string', enum: ['DEPOSIT', 'TRANSFER'] },
+            type: { type: 'string', enum: TransactionType },
             status: {
               type: 'string',
-              enum: ['PENDING', 'COMPLETED', 'FAILED'],
+              enum: TransactionStatus,
             },
             created_at: { type: 'string', format: 'date-time' },
             updated_at: { type: 'string', format: 'date-time' },

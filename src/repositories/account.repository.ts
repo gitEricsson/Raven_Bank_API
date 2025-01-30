@@ -1,6 +1,6 @@
 import { Knex } from 'knex';
 import { db } from '../config/database';
-import { Account } from '../types';
+import { Account } from '../types/interface';
 
 export class AccountRepository {
   private static instance: AccountRepository;

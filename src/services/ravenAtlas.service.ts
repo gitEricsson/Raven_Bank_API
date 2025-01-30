@@ -8,7 +8,8 @@ import {
   ValidationError,
 } from '../utils/errors';
 import AccountRepository from '../repositories/account.repository';
-import { Account } from '../types';
+import { Account } from '../types/interface';
+import { TransactionStatus } from '../types/enums';
 import TransactionService from './transaction.service';
 
 interface TransferData {
@@ -27,7 +28,7 @@ interface RavenResponse<T> {
 interface RavenTransferResponse {
   reference: string;
   amount: number;
-  status: 'pending' | 'success' | 'failed';
+  status: TransactionStatus;
   message?: string;
 }
 

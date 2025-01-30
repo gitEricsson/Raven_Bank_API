@@ -1,4 +1,4 @@
-import { User } from '../types';
+import { User } from '../types/interface';
 import UserRepository from '../repositories/auth.repository';
 import HashService from '../utils/hashService';
 import TokenService from './token.service';
