@@ -29,7 +29,7 @@ app.use(apiLimiter);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // Routes
-app.use('/api/users', authLimiter, userRoutes);
+app.use('/api/auth', authLimiter, userRoutes);
 app.use('/api/accounts', accountRoutes);
 app.use('/api/transactions', transactionRoutes);
 app.use('/api/webhooks', webhookRoutes);
